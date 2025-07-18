@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmation de compte</title>
+    <style>
+        /* Reset et styles de base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Conteneur principal */
+        .email-container {
+            max-width: 600px;
+            margin: 30px auto;
+            background-color: #ffffff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        /* En-tête */
+        .email-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 30px;
+            text-align: center;
+            color: white;
+        }
+
+        .email-header h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        /* Corps du message */
+        .email-body {
+            padding: 30px;
+        }
+
+        .email-body p {
+            margin-bottom: 20px;
+            font-size: 16px;
+            color: #555;
+        }
+
+        .highlight {
+            background-color: #f0f4ff;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #667eea;
+        }
+
+        /* Bouton de confirmation */
+        .confirm-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            margin: 20px 0;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .confirm-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        /* Pied de page */
+        .email-footer {
+            background-color: #f8f9fa;
+            padding: 20px;
+            text-align: center;
+            font-size: 14px;
+            color: #777;
+            border-top: 1px solid #eee;
+        }
+
+        .social-links {
+            margin: 15px 0;
+        }
+
+        .social-links a {
+            display: inline-block;
+            margin: 0 10px;
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 640px) {
+            .email-container {
+                margin: 0;
+                border-radius: 0;
+            }
+
+            .email-header, .email-body {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="email-container">
+    <div class="email-header">
+        <div class="logo">MonApplication</div>
+        <h1>Votre code de confirmation</h1>
+    </div>
+
+    <div class="email-body">
+        <p>Bonjour [[NAME]],</p>
+
+        <p>Merci d'avoir créé un compte sur MonApplication. Pour finaliser votre inscription, veuillez utiliser le code de confirmation suivant :</p>
+
+        <div style="text-align: center; margin: 30px 0;">
+            <div style="display: inline-block; background: #f0f4ff; padding: 15px 30px; border-radius: 8px; font-size: 24px; font-weight: bold; letter-spacing: 2px; color: #667eea;">
+                [[CODE]]
+            </div>
+        </div>
+
+        <div class="highlight">
+            <p>Ce code expirera dans 24 heures. Si vous n'avez pas créé de compte sur MonApplication, vous pouvez ignorer cet email en toute sécurité.</p>
+        </div>
+
+        <p>À bientôt,<br>L'équipe MonApplication</p>
+    </div>
+
+    <div class="email-footer">
+        <p>© 2023 MonApplication. Tous droits réservés.</p>
+
+        <div class="social-links">
+            <a href="#">Twitter</a>
+            <a href="#">Facebook</a>
+            <a href="#">Instagram</a>
+            <a href="#">LinkedIn</a>
+        </div>
+
+        <p>
+            <a href="#" style="color: #667eea; text-decoration: none;">Centre d'aide</a> |
+            <a href="#" style="color: #667eea; text-decoration: none;">Confidentialité</a> |
+            <a href="#" style="color: #667eea; text-decoration: none;">Conditions</a>
+        </p>
+    </div>
+</div>
+</body>
+</html>
