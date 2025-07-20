@@ -8,5 +8,9 @@ import lombok.*;
 public class MailInfo {
     private String sendTo;
     private String subject;
+
+    // USERS INFOS
     private String name;
+    private String email;
+    private String password;
 }

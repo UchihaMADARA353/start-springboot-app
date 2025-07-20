@@ -1,4 +1,4 @@
-package com.example.start_spring_app.interceptor;
+package com.example.start_spring_app.interceptors;
 
 import com.example.start_spring_app.repository.UserRepository;
 import jakarta.servlet.http.HttpServletRequest;

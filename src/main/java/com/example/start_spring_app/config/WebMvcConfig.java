@@ -1,6 +1,6 @@
 package com.example.start_spring_app.config;
 
-import com.example.start_spring_app.interceptor.RegisterFlowInterceptor;
+import com.example.start_spring_app.interceptors.RegisterFlowInterceptor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;

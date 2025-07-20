@@ -4,4 +4,5 @@ import com.example.start_spring_app.dto.MailInfo;
 
 public interface EmailService {
     void generate(MailInfo mailInfo);
+    void sendMailUserAccount(MailInfo mailInfo);
 }

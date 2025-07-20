@@ -1,5 +1,6 @@
 package com.example.start_spring_app.service.impl;
 
+import com.example.start_spring_app.dto.MailInfo;
 import com.example.start_spring_app.dto.request.UserRequestDTO;
 import com.example.start_spring_app.dto.response.UserResponseDTO;
 import com.example.start_spring_app.entities.Role;
@@ -10,6 +11,7 @@ import com.example.start_spring_app.exception.UserNotFoundException;
 import com.example.start_spring_app.mapper.UserMapper;
 import com.example.start_spring_app.repository.RoleRepository;
 import com.example.start_spring_app.repository.UserRepository;
+import com.example.start_spring_app.service.EmailService;
 import com.example.start_spring_app.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -22,7 +24,9 @@ import java.util.*;
 public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
     private final RoleRepository roleRepository;
-    private PasswordEncoder passwordEncoder;
+    private final PasswordEncoder passwordEncoder;
+    private final EmailService emailService;
+
 
     @Override
     public List<UserResponseDTO> getAllUsers() {
@@ -36,6 +40,7 @@ public class UserServiceImpl implements UserService {
         Role role = roleRepository.findByRoleName(roleName)
                 .orElseThrow(() -> new IllegalArgumentException("Role not found: " + roleName));
         roles.add(role);
+        String password = "12345678";
         if (userRepository.existsByEmail(userDTO.email())) {
             throw new UserAlreadyExistException("Email already exists");
         }
@@ -43,9 +48,16 @@ public class UserServiceImpl implements UserService {
             throw new IllegalArgumentException("Password confirmation does not match");
         }
         User user = UserMapper.toEntity(userDTO);
-        user.setPassword(passwordEncoder.encode(userDTO.password()));
+        user.setPassword(passwordEncoder.encode(password));
         user.setRoles(roles);
         User savedUser = userRepository.save(user);
+
+        MailInfo mailInfo = MailInfo.builder()
+                .name(user.getName()).sendTo(user.getEmail())
+                .subject("Vos identifiants de connexion")
+                .email(user.getEmail()).password(password)
+                .build();
+        emailService.sendMailUserAccount(mailInfo);
         return UserMapper.toDto(savedUser);
     }
 
