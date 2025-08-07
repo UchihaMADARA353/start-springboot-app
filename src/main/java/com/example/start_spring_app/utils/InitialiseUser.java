@@ -64,10 +64,10 @@ public class InitialiseUser {
 
             Optional<User> findUser = userRepository.findByEmail("adminghis@gmail.com");
             if (findUser.isPresent()) {
-                log.info("\n\n✅👍 Admin : adminghis@gmail.com\n");
+                log.info("\n\n✅👍 Admin : {}", findUser.get().getName());
             } else {
                 userRepository.save(user);
-                log.info("\n\n✅ Admin créer avec succès\n");
+                log.info("\n\n✅ Admin créer avec succès");
             }
         };
     }

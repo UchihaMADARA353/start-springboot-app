@@ -75,6 +75,12 @@ public class RegisterUserServiceImpl implements RegisterUserService {
     }
 
     @Override
+    public UserResponseDTO getUserByEmail(String email) {
+        User user = userRepository.findByEmail(email).orElseThrow(() -> new UserNotFoundException("User not found"));
+        return UserMapper.toDto(user);
+    }
+
+    @Override
     public void confirmAccount(PersonalAccessTokenDTO accessToken) {
         PersonalAccessToken findToken = personalAccessTokenRepository
                 .findByEmail(accessToken.email());

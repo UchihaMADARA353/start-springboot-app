@@ -7,6 +7,7 @@ import com.example.start_spring_app.entities.PersonalAccessToken;
 
 public interface RegisterUserService {
     UserResponseDTO registerUser(UserRequestDTO userDTO);
+    UserResponseDTO getUserByEmail(String email);
     void confirmAccount(PersonalAccessTokenDTO accessToken);
     void generateToken(String email);
 }

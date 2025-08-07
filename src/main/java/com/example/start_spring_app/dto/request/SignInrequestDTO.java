@@ -8,10 +8,11 @@ import lombok.Builder;
 @Builder
 public record SignInrequestDTO(
         @NotNull(message = "Ce champ ne peut pas être null")
-        @Size(min = 3, max = 100, message = "Le titre doit contenir entre 3 et 100 caractères")
+        @Size(min = 3, max = 100, message = "L'email doit contenir entre 3 et 100 caractères")
         @Email(message = "Entrez une email valide")
         String email,
 
+        @NotNull(message = "Ce champ ne peut pas être null")
         String password
 ) {
 }

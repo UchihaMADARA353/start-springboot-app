@@ -8,12 +8,11 @@ import java.util.List;
 
 @Builder
 public record UserProfile(
-        boolean isAuthenticatd,
+        boolean isAuthenticated,
         List<RoleName> roles,
         String name,
         String email,
         Date birthDate,
         boolean isActived
-
 ) {
 }
